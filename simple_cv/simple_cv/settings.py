@@ -46,8 +46,13 @@ INSTALLED_APPS = [
     'cv',
 ]
 
-DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
-DBBACKUP_STORAGE_OPTIONS = {'location': BASE_DIR / 'backup'}
+# DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+# DBBACKUP_STORAGE_OPTIONS = {'location': BASE_DIR / 'backup'}
+
+DBBACKUP_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+DBBACKUP_STORAGE_OPTIONS = {
+    'oauth2_access_token': os.getenv('DROPBOX_OAUTH2_TOKEN'),
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
