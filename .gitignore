@@ -9,3 +9,5 @@ media
 migrations
 .env
 simple_cv/backup
+.vscode
+.vscode/launch.json
