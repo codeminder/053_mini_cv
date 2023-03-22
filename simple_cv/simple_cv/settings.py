@@ -51,7 +51,9 @@ INSTALLED_APPS = [
 
 DBBACKUP_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
 DBBACKUP_STORAGE_OPTIONS = {
-    'oauth2_access_token': os.getenv('BC_DROPBOX_OAUTH2_TOKEN'),
+    'app_key': os.getenv('BC_DROPBOX_APP_KEY'),
+    'app_secret': os.getenv('BC_DROPBOX_APP_SECRET'),
+    'oauth2_refresh_token': os.getenv('BC_DROPBOX_OAUTH2_REFRESH_TOKEN'),
     'root_path' : os.getenv('BC_DROPBOX_ROOT_PATH', '/'),
 }
 
