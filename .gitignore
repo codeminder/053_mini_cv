@@ -10,3 +10,4 @@ migrations
 .env
 simple_cv/backup
 .vscode
+simple_cv/celerybeat-schedule
