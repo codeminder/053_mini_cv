@@ -11,3 +11,4 @@ migrations
 simple_cv/backup
 .vscode
 simple_cv/celerybeat-schedule
+simple_cv/django

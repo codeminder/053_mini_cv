@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'dbbackup',
     'cv',
+    'django_celery_results',
 ]
 
 # DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
@@ -153,7 +154,12 @@ REDIS_HOST = 'localhost'
 REDIS_PORT = '6379' 
 BROKER_URL = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0' 
 BROKER_TRANSPORT_OPTIONS = {'visibility_timeout': 3600} 
-CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
+# CELERY_RESULT_BACKEND = 'redis://' + REDIS_HOST + ':' + REDIS_PORT + '/0'
 # CELERY_IMPORTS = [
 #     'simple_cv.tasks',
 # ]
+
+CELERY_RESULT_BACKEND = 'django-db'
+# CELERY_RESULT_BACKEND = 'db+sqlite:///django-db'
+# CELERY_CACHE_BACKEND = 'django-cache'
+# CELERY_RESULT_EXTENDED = True
