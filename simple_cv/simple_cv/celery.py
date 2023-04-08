@@ -12,7 +12,9 @@ app.autodiscover_tasks()
 
 app.conf.beat_schedule = {
     'make-backups-cv': {
-        'task': 'simple_cv.utils.backup_db',
+        'task': 'cv.tasks.run_bc',
         'schedule': crontab(minute='*/10'),  # change to `crontab(minute=0, hour=0)` if you want it to run daily at midnight 
     },
 }
+
+app.conf.timezone = 'Europe/Kyiv'
