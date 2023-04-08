@@ -5,6 +5,8 @@ from celery.schedules import crontab
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'simple_cv.settings')
 
 app = Celery('simple_cv')
+
+# Set the default Django settings module for the 'celery' program.
 app.config_from_object('django.conf:settings')
 
 # Load task modules from all registered Django app configs. 
