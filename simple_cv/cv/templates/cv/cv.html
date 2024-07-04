@@ -126,7 +126,21 @@
             {% endfor %}
           </div>
       </div>
-      <div class="row"><p class="text-end">&#169; Roman Rabotin, 2023</p></div>
+      <div class="row">
+        <div class="card text-start text-bg-light bg-primary border-primary bg-opacity-10 mb-3">
+          <div class="row text-center"><h3>
+              {{ headers.hobby_item }}
+          </h3></div>
+          <div class="card-body">
+            <ul>
+              {% for hobby in hobby_item %}
+                  <li>{{ hobby.text }}</li>                 
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+    </div>
+      <div class="row"><p class="text-end">&#169; Roman Rabotin, 2024</p></div>
     </div>
   </div>
   {% endblock %}

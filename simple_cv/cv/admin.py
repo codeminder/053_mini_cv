@@ -40,3 +40,8 @@ class EmloymentHistoryItemAdmin(admin.ModelAdmin):
                     "position_name_en", "text_uk","text_en")
     list_display_links = ("firm_name_uk","firm_name_en", "position_name_uk",
                           "position_name_en", "text_uk","text_en")
+    
+@admin.register(HobbyItem)
+class HobbyItemAdmin(admin.ModelAdmin):
+    list_display = ("text_uk","text_en")
+    list_display_links = ("text_uk","text_en")

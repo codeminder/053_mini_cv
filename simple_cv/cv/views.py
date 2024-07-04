@@ -13,8 +13,8 @@ def cv(request):
 def get_context(lang):
     
     headers = {
-        "en":{"about": "About me", "skills": "Skills", "knowledge": "Knowledge and technologies", "work_history": "Work history (last three)"}, 
-        "uk": {"about": "Про мене", "skills": "Досвід", "knowledge": "Знання та технології", "work_history": "Професійний досвід (останні 3 посади)"}}
+        "en":{"about": "About me", "skills": "Skills", "knowledge": "Knowledge and technologies", "work_history": "Work history (last three)", "hobby_item":"My hobby"}, 
+        "uk": {"about": "Про мене", "skills": "Досвід", "knowledge": "Знання та технології", "work_history": "Професійний досвід (останні 3 посади)", "hobby_item":"Моє хобі"}}
     
     cv = ResumeHeader.objects.filter(pk=1).prefetch_related("contactitem_set", \
         "tittlephoto_set", "skillitem_set", "knowledgeitem_set", "emloymenthistoryitem_set")
@@ -25,6 +25,7 @@ def get_context(lang):
     skill_item = cv.first().skillitem_set.all().values(text = F(f"text_{lang}"))
     knowledge_item = cv.first().knowledgeitem_set.all().values(text = F(f"text_{lang}"))
     emloymenthistory_item = cv.first().emloymenthistoryitem_set.all().values(firm_name = F(f"firm_name_{lang}"), position_name = F(f"position_name_{lang}"), text = F(f"text_{lang}")) 
+    hobby_item = cv.first().hobbyitem_set.all().values(text = F(f"text_{lang}"))
     
     return {
         "lang": lang,
@@ -35,4 +36,5 @@ def get_context(lang):
         "skill_item": skill_item,
         "knowledge_item": knowledge_item,
         "emloymenthistory_item": emloymenthistory_item,
+        "hobie_item": hobby_item,
         }

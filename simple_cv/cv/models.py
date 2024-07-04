@@ -97,5 +97,12 @@ class EmloymentHistoryItem(BaseItem):
         verbose_name_plural = "Employer history items"
         ordering = ["-order"]
         
+class HobbyItem(BaseItem):
+    
+    class Meta:
+        verbose_name = "Hobby item"
+        verbose_name_plural = "Hobby items"
+        ordering = ["-order"]
+        
         
 
